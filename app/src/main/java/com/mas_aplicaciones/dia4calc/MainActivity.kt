@@ -9,7 +9,6 @@ import android.widget.TextView
 import org.mariuszgromada.math.mxparser.Expression
 
 class MainActivity : AppCompatActivity() {
-
     var tvDisplay: TextView? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,25 +21,20 @@ class MainActivity : AppCompatActivity() {
         val c: String = (view as Button).text as String
 
         if(c.equals(".")) {
-            validarPunto()
-            if (txt.contains("."))
+            if(Expression(txt+".0").calculate().isNaN())
                 return
         }
-
         if(txt.equals("0"))
             tvDisplay?.text  = c
         else
             tvDisplay?.text  = txt + c
     }
-    fun validarPunto(): Boolean {
+    fun clickTrigonometricas(view: View) {
         val txt: String = tvDisplay?.text.toString()
+        val c: String = (view as Button).text as String
+        tvDisplay?.text  = "$c($txt)"
 
-        val operandos = txt.split("+|-|*|/|(|)")
-        for(elemento: String in operandos)
-            Log.e("ee", elemento)
-        return true;
     }
-
     fun borrarUltimo(view: View) {
         val txt: String = tvDisplay?.text.toString()
         if(txt.length==1)
@@ -54,8 +48,6 @@ class MainActivity : AppCompatActivity() {
     }
     fun calcular(view: View) {
         val txt: String = tvDisplay?.text.toString()
-        var ex: Expression;
-        ex = Expression(txt)
-        tvDisplay?.text = ex.calculate().toString()
+        tvDisplay?.text = Expression(txt).calculate().toString()
     }
 }

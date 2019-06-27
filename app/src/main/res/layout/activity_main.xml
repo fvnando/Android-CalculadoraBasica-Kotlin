@@ -8,21 +8,56 @@
         tools:context=".MainActivity">
     <EditText
             android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:inputType="textPersonName"
+            android:layout_height="0dp"
+            android:inputType="textMultiLine"
             android:text="0"
             android:ems="10"
             android:id="@+id/tvDisplay"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toTopOf="parent" android:singleLine="false"/>
+            app:layout_constraintTop_toTopOf="parent" android:editable="false"
+            android:textAlignment="textEnd" android:textSize="30sp" android:enabled="false"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            android:gravity="bottom|right"/>
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="0dp"
-            android:layout_height="0dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/tvDisplay" app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent">
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/linearLayout">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+        >
+            <Button
+                    android:text="sin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/bsin" android:layout_weight="1"
+                    android:layout_margin="10dp" android:onClick="clickTrigonometricas"/>
+            <Button
+                    android:text="cos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/bcos" android:layout_weight="1"
+                    android:layout_margin="10dp" android:onClick="clickTrigonometricas"/>
+            <Button
+                    android:text="tan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/btan" android:layout_weight="1"
+                    android:layout_margin="10dp" android:onClick="clickTrigonometricas"/>
+            <Button
+                    android:text="("
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/bParentesisAbierto" android:layout_weight="1"
+                    android:layout_margin="10dp" android:onClick="click"/>
+            <Button
+                    android:text=")"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/bParentesisCerrado" android:layout_weight="1"
+                    android:layout_margin="10dp" android:onClick="click"/>
+        </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -130,19 +165,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:id="@+id/bPunto" android:layout_weight="1"
                     android:layout_margin="10dp" android:onClick="click"/>
-            <Button
-                    android:text="("
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/bParentesisAbierto" android:layout_weight="1"
-                    android:layout_margin="10dp" android:onClick="click"/>
-            <Button
-                    android:text=")"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/bParentesisCerrado" android:layout_weight="1"
-                    android:layout_margin="10dp" android:onClick="click"/>
+
             <Button
                     android:text="="
-                    android:layout_width="wrap_content"
+                    android:layout_width="240dp"
                     android:layout_height="wrap_content" android:id="@+id/bIgual" android:layout_weight="1"
                     android:layout_margin="10dp" android:background="@android:color/holo_green_dark"
                     android:onClick="calcular"/>
